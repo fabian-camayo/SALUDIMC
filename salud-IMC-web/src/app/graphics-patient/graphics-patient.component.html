@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-end">
+ <button class="btn btn-lg btn-outline-primary" (click)="randomize()">Actualizar</button>
+ <button class="btn btn-lg btn-outline-primary" (click)="open()">Calcular</button>  
+</div>
+<div>
+  <div>
+    <div style="display: block">
+        <h1>PROMEDIO IMC POR EDAD</h1>
+      <canvas baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
+  </div> 
+</div>
+
+

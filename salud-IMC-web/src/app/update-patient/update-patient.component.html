@@ -1,0 +1,32 @@
+<div class="row">
+
+  <div class="col-6"><h3>Actualizar paciente</h3></div>
+     <div class="col-6"><button routerLink="../../patients" class="btn btn-info">Volver</button></div>
+</div>
+
+    <hr>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nombre:</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="patient.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="age">Edad:</label>
+      <input type="text" class="form-control" id="age" required [(ngModel)]="patient.age" name="age">
+    </div>
+
+    <div class="form-group">
+      <label for="weight">Peso:</label>
+      <input type="text" class="form-control" id="weight" required [(ngModel)]="patient.weight" name="weight">
+    </div>
+
+    <div class="form-group">
+      <label for="size">Talla:</label>
+      <input type="text" class="form-control" id="size" required [(ngModel)]="patient.size" name="size">
+    </div>
+
+    <button type="submit" class="btn btn-success">Actualizar</button>
+  </form>
+</div>

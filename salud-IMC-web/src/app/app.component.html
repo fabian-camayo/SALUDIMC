@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a routerLink="" class="nav-link" routerLinkActive="active">SALUD IMC</a>
+    </li>
+    <li class="nav-item">
+        <a routerLink="patients" class="nav-link" routerLinkActive="active">Pacientes</a>
+    </li>
+    
+  </ul>
+</nav>
+<div class="container">
+  <br>
+  <h2 style="text-align: center;">{{title}}</h2>
+  <hr>  
+  <div class="card">
+    <div class="card-body">
+  <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <span>Todos los derechos reservados 2019 @Salud-IMC</span>
+  </div>
+</footer>
