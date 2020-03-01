@@ -2,7 +2,7 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-6"><h2>Todos los pacientes</h2></div>
-            <div class="col-6"><button routerLink="../add" class="btn btn-info">Agregar</button></div>
+            <div class="col-6"><button routerLink="../add" class="btn btn-outline-success rounded-circle"><i class="fas fa-plus"></i></button></div>
         </div>
     </div>
     <div class="panel-body">
@@ -19,9 +19,9 @@
             <td>{{patient.name}}</td>
             <td>{{patient.age}}</td>
             <td>
-                <button (click)="deletePatient(patient.id)" class="btn btn-danger">Eliminar</button>
-                <button (click)="patientDetails(patient.id)" class="btn btn-info" style="margin-left: 10px">Detalles</button>
-                <button (click)="updatePatient(patient.id)" class="btn btn-success" style="margin-left: 10px">Editar</button>
+                <button (click)="deletePatient(patient.id)" class="btn btn-danger rounded-circle"><i class="fas fa-trash-alt"></i></button>
+                <button (click)="patientDetails(patient.id)" class="btn btn-info rounded-circle" style="margin-left: 10px"><i class="far fa-eye"></i></button>
+                <button (click)="updatePatient(patient.id)" class="btn btn-success rounded-circle" style="margin-left: 10px"><i class="fas fa-edit"></i></button>
             </td>
           </tr>
         </tbody>

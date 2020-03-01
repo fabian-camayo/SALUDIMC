@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-6"><h2>Detalles del paciente</h2></div>
-    <div class="col-6"><button (click)="list()" class="btn btn-primary">Volver</button><br></div>
+    <div class="col-6"><button (click)="list()" class="btn btn-outline-success rounded-circle"><i class="fas fa-arrow-left"></i></button><br></div>
 </div>
 <hr/>
 <div *ngIf="patient">
@@ -12,11 +12,11 @@
   </div>
   <div>
     <label><b>Peso: </b></label> {{patient.weight}}
-  </div>  
+  </div>
   <div>
     <label><b>Talla: </b></label> {{patient.size}}
   </div>
   <div>
     <label><b>I.M.C: </b></label> {{patient.imc}}
-  </div>  
+  </div>
 </div>

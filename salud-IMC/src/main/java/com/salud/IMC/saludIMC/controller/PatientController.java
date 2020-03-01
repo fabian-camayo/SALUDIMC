@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.salud.IMC.saludIMC.repository.PatientRepository;
 import com.salud.IMC.saludIMC.data.Patient;
+import com.salud.IMC.saludIMC.data.dto.Graphics;
 import com.salud.IMC.saludIMC.exception.ResourceNotFoundException;
 import java.util.List;
 import javax.validation.Valid;
@@ -20,6 +21,7 @@ import java.util.Map;
 import java.util.HashMap;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.salud.IMC.saludIMC.data.dto.ImcCalculator;
+import java.util.ArrayList;
 
 /**
  *
@@ -32,6 +34,19 @@ public class PatientController {
  
     @Autowired
 	private PatientRepository patientRepository;
+    
+    	@GetMapping("/patients/graphics")
+	public Graphics getGraphics() {
+            
+            Graphics Graphic = new Graphics();
+            
+            Graphic.setUnderweight(patientRepository.underweight());
+            Graphic.setOverweight(patientRepository.overweight());
+            Graphic.setHealthy(patientRepository.healthy());
+            Graphic.setObese(patientRepository.obese());
+            
+            return Graphic;
+	}
 
 	@GetMapping("/patients")
 	public List<Patient> getAllPatient() {

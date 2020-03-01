@@ -7,12 +7,12 @@ package com.salud.IMC.saludIMC.data.dto;
 
 /**
  *
- * @author develop
+ * @author Fabian Muñoz
  */
 public class ImcCalculator {
     
-    Integer size;
-    Integer weight;
+   private Integer size;
+   private  Integer weight;
 
     public ImcCalculator() {
     }

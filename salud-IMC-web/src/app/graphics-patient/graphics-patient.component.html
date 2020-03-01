@@ -1,11 +1,11 @@
 <div class="d-flex justify-content-end">
- <button class="btn btn-lg btn-outline-primary" (click)="randomize()">Actualizar</button>
- <button class="btn btn-lg btn-outline-primary" (click)="open()">Calcular</button>  
+    <button class="btn btn-outline-success rounded-circle" (click)="ngOnInit()"><i class="fas fa-sync-alt"></i></button>
+ <button class="btn btn-outline-success rounded-circle" (click)="open()"><i class="fas fa-calculator"></i></button>
 </div>
 <div>
   <div>
     <div style="display: block">
-        <h1>PROMEDIO IMC POR EDAD</h1>
+        <h1>Índice de masa corporal</h1>
       <canvas baseChart
         [datasets]="barChartData"
         [labels]="barChartLabels"
@@ -15,7 +15,7 @@
         [chartType]="barChartType">
       </canvas>
     </div>
-  </div> 
+  </div>
 </div>
 
 

@@ -1,7 +1,8 @@
+import { Graphics } from '../graphics';
 import { Component,OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ModalImcCalculatorComponent } from '../modal-imc-calculator/modal-imc-calculator.component';
-
+import { PatientService } from '../patient.service';
 
 @Component({
   selector: 'app-graphics-patient',
@@ -9,10 +10,22 @@ import { ModalImcCalculatorComponent } from '../modal-imc-calculator/modal-imc-c
   styleUrls: ['./graphics-patient.component.css']
 })
 export class GraphicsPatientComponent  {
-    constructor(public modalService: NgbModal) {}
-
+    constructor(public modalService: NgbModal,private patientService: PatientService) {}
+ graphics = new Graphics();
     ngOnInit() {
-       
+
+      this.patientService.getGraphics()
+        .subscribe(data => {
+        console.log(data)
+        this.graphics = data;
+      }, error => console.log(error));
+      const data = [
+        this.graphics.underweight,
+        this.graphics.healthy,
+        this.graphics.overweight,
+        this.graphics.obese
+        ];
+      this.barChartData[0].data = data;
     }
 
 
@@ -20,15 +33,19 @@ export class GraphicsPatientComponent  {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels: string[] = ['10', '15', '20', '25', '30', '35', '40'];
+  public barChartLabels: string[] = ['Bajo peso', 'Saludable', 'Sobrepeso', 'Obeso'];
   public barChartType: string = 'bar';
   public barChartLegend:boolean = true;
 
   public barChartData: any[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'IMC' }
+    { data: [],
+      label: 'Número de personas',
+      backgroundColor: 'rgba(72, 159, 85)',
+      borderColor: 'rgb(0, 82, 15)',
+      hoverBackgroundColor:'rgb(0, 82, 15)'
+    }
   ];
-  
-  // events
+
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
   }
@@ -37,22 +54,11 @@ export class GraphicsPatientComponent  {
     console.log(event, active);
   }
 
-  public randomize(): void {
-    // Only Change 3 values
-    const data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      (Math.random() * 100),
-      56,
-      (Math.random() * 100),
-      40];
-    this.barChartData[0].data = data;
-  }
-
   open() {
+debugger;
     const modalRef = this.modalService.open(ModalImcCalculatorComponent);
-    modalRef.componentInstance.my_modal_title = 'Calcular el indice de masa corporal';
+    modalRef.componentInstance.my_modal_title = 'Índice de masa corporal';
     modalRef.componentInstance.my_modal_content = 'Ingrese los datos necesarios';
   }
+
 }

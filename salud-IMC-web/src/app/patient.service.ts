@@ -15,6 +15,10 @@ export class PatientService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
+  getGraphics(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/graphics`);
+  }
+
   createPatient(patient: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, patient);
   }

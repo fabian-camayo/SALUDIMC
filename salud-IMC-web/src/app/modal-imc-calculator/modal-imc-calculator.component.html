@@ -10,22 +10,21 @@
 
      <form (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="weight" class="col-form-label">Peso(kg):</label>
+            <label for="weight" class="col-form-label">Peso(kg)*:</label>
             <input type="number" class="form-control" id="weight" required [(ngModel)]="imcCalculator.weight" name="weight">
           </div>
           <div class="form-group">
-            <label for="size" class="col-form-label">Estatura(cm):</label>
+            <label for="size" class="col-form-label">Estatura(cm)*:</label>
             <input type="number" class="form-control" id="size" required [(ngModel)]="imcCalculator.size" name="size">
           </div>
-                 <button type="submit" class="btn btn-primary">Calcular</button>
-
+          <button type="submit" class="btn btn-lg btn-outline-success rounded form-control">Calcular</button>
         </form>
   </div>
   <div class="modal-footer">
           <div class="container">
             <div class="film-info-bottom" >
                 <div class="row">
-                    <div class="col-6"><h2>Total: </h2></div>
+                    <div class="col-6"><h2>Su IMC es: </h2></div>
                     <div class="col-6"><h4><span> {{ result | json }}</span></h4></div>
                 </div>
             </div>
